@@ -1,32 +1,18 @@
 "use strict";
-var Sorter = /** @class */ (function () {
-    //   collection: number[];
-    //   constructor(collection: number[]) {
-    //     this.collection = collection;
-    //   }
-    function Sorter(collection) {
-        this.collection = collection;
-    }
-    Sorter.prototype.sort = function () {
-        var length = this.collection.length;
-        for (var i = 0; i < length; i++) {
-            for (var j = 0; j < length - i - 1; j++) {
-                //If collection is an array of number
-                if (this.collection instanceof Array) {
-                    if (this.collection[j] > this.collection[j + 1]) {
-                        var temp = this.collection[j];
-                        this.collection[j] = this.collection[j + 1];
-                        this.collection[j + 1] = temp;
-                    }
-                }
-                //If collection is a string, do this logic instead
-                if (typeof this.collection === "string") {
-                }
-            }
-        }
-    };
-    return Sorter;
-}());
-var sorter = new Sorter([-2, 3, 6, -4, 10]);
-sorter.sort();
-console.log(sorter.collection);
+Object.defineProperty(exports, "__esModule", { value: true });
+var NumbersCollection_1 = require("./NumbersCollection");
+var CharactersCollection_1 = require("./CharactersCollection");
+var LinkedList_1 = require("./LinkedList");
+var numbersCollection = new NumbersCollection_1.NumbersCollection([-2, 3, 6, -4, 10]);
+numbersCollection.sort();
+console.log(numbersCollection.data);
+var charactersCollection = new CharactersCollection_1.CharactersCollection("asdesLFHFDHDXZsasjdknogn");
+charactersCollection.sort();
+console.log(charactersCollection.data);
+var linkedList = new LinkedList_1.LinkedList();
+linkedList.add(500);
+linkedList.add(-10);
+linkedList.add(-2);
+linkedList.add(7);
+linkedList.sort();
+linkedList.print();

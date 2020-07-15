@@ -1,32 +1,21 @@
-class Sorter {
-  //   collection: number[];
-  //   constructor(collection: number[]) {
-  //     this.collection = collection;
-  //   }
+import { NumbersCollection } from "./NumbersCollection";
+import { CharactersCollection } from "./CharactersCollection";
+import { LinkedList } from "./LinkedList";
 
-  constructor(public collection: number[] | string) {}
+const numbersCollection = new NumbersCollection([-2, 3, 6, -4, 10]);
+numbersCollection.sort();
+console.log(numbersCollection.data);
 
-  sort(): void {
-    const { length } = this.collection;
-    for (let i = 0; i < length; i++) {
-      for (let j = 0; j < length - i - 1; j++) {
-        //If collection is an array of number
-        if (this.collection instanceof Array) {
-          if (this.collection[j] > this.collection[j + 1]) {
-            const temp = this.collection[j];
-            this.collection[j] = this.collection[j + 1];
-            this.collection[j + 1] = temp;
-          }
-        }
+const charactersCollection = new CharactersCollection(
+  "asdesLFHFDHDXZsasjdknogn"
+);
+charactersCollection.sort();
+console.log(charactersCollection.data);
 
-        //If collection is a string, do this logic instead
-        if (typeof this.collection === "string") {
-        }
-      }
-    }
-  }
-}
-
-const sorter = new Sorter([-2, 3, 6, -4, 10]);
-sorter.sort();
-console.log(sorter.collection);
+const linkedList = new LinkedList();
+linkedList.add(500);
+linkedList.add(-10);
+linkedList.add(-2);
+linkedList.add(7);
+linkedList.sort();
+linkedList.print();

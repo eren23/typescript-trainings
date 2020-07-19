@@ -25,7 +25,7 @@ router.get("/login", (req: Request, res: Response) => {
 
   <div>
   <label> Password</label>
-  <input name="password">
+  <input name="password" type="password">
 
   <button>Submit</button>
   </form>
@@ -68,8 +68,9 @@ router.get("/logout", (req: Request, res: Response) => {
 });
 
 router.get("/protected", requireAuth, (req: Request, res: Response) => {
-  req.session = null;
-  res.redirect("/");
+  res.send(
+    "hey dude that route is protected, so welcome to our secret alliance"
+  );
 });
 
 export { router };
